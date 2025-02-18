@@ -1,49 +1,58 @@
-import { createBrowserRouter } from 'react-router-dom';
-import App from '../App';
-import UserRoles from '../pages/UserRoles';
-import UserManagement from '../pages/UserManagement';
-import Dashboard from '../pages/Dashboard';
-import AutoResponse from '../pages/AutoResponse';
-import Customers from '../pages/Customers';
-import Subscriptions from '../pages/Subscriptions';
-import Books from '../pages/Books';
+import { createBrowserRouter } from "react-router-dom";
+import App from "../App";
+import UserRoles from "../pages/UserRoles";
+import UserManagement from "../pages/UserManagement";
+import Dashboard from "../pages/Dashboard";
+import AutoResponse from "../pages/AutoResponse";
+import Customers from "../pages/Customers";
+import BookCreate from "../components/books/BookCreate";
+import Subscriptions from "../pages/Subscriptions";
+import Books from "../pages/Books";
+import BooksTable from "../components/books/BooksTable";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
   },
   {
-    path: '/admin',
+    path: "/admin",
     element: <App />,
     children: [
       {
-        path: 'home',
+        path: "home",
         element: <Dashboard />,
       },
       {
-        path: 'user-roles',
+        path: "user-roles",
         element: <UserRoles />,
       },
       {
-        path: 'user-management',
+        path: "user-management",
         element: <UserManagement />,
       },
       {
-        path: 'auto-response',
+        path: "auto-response",
         element: <AutoResponse />,
       },
       {
-        path: 'customers',
+        path: "customers",
         element: <Customers />,
       },
       {
-        path: 'subscriptions',
+        path: "subscriptions",
         element: <Subscriptions />,
       },
       {
-        path: 'books',
+        path: "books",
         element: <Books />,
+        children: [
+          { path: "", element: <BooksTable /> },
+          {
+            path: "create",
+            element: <BookCreate />,
+          },
+        ],
       },
     ],
   },
