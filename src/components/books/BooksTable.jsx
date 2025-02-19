@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { Outlet } from "react-router-dom";
+import { Outlet,Link } from "react-router-dom";
 
 const BooksTable = () => {
   // Query data
@@ -15,7 +15,7 @@ const BooksTable = () => {
       const response = await fetch("http://localhost:3000/books");
       return response.json();
     },
-    //staleTime: Infinity,
+    staleTime: Infinity,
   });
 
   if (error) return "An error has occurred: " + error.message;
@@ -54,6 +54,7 @@ const BooksTable = () => {
       ) : (
         <>
           <Outlet />
+          <Link to="create">Add new book</Link>
           <table className="w-full border-collapse border border-gray-200">
             <thead className="bg-gray-200">
               <tr>

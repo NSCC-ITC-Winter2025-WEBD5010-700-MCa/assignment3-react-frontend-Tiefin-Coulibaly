@@ -10,7 +10,6 @@ const Books = () => {
     <div>
       <h1 className="text-2xl font-bold">Books</h1>
        <p>Welcome to the admin Books.</p>
-      <Link to="create">Add new book</Link>
       <Outlet/>
     </div>
   );
