@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 const BookForm = ({ onDataCollected, initialData }) => {
@@ -5,15 +6,17 @@ const BookForm = ({ onDataCollected, initialData }) => {
     register,
     handleSubmit,
     formState: { errors },
-    setValue
+    setValue,
   } = useForm();
 
-  if (initialData) {
-    setValue("title", initialData.title);
-    setValue("author", initialData.author);
-    setValue("published_year", initialData.published_year);
-    setValue("genre", initialData.genre);
-  }
+  useEffect(() => {
+    if (initialData) {
+      setValue("title", initialData.title);
+      setValue("author", initialData.author);
+      setValue("published_year", initialData.published_year);
+      setValue("genre", initialData.genre);
+    }
+  }, [initialData]);
 
   return (
     <form onSubmit={handleSubmit(onDataCollected)} className="space-y-4">
