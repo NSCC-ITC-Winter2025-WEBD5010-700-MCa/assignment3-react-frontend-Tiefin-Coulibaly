@@ -65,13 +65,16 @@ const AnimesTable = () => {
                   Title
                 </th>
                 <th className="border border-gray-300 px-4 py-2 text-left">
-                  Author
+                  Genre
+                </th>
+                <th className="border border-gray-300 px-4 py-2 text-left">
+                  Creator
                 </th>
                 <th className="border border-gray-300 px-4 py-2 text-left">
                   Year
                 </th>
                 <th className="border border-gray-300 px-4 py-2 text-left">
-                  Genre
+                  Image
                 </th>
                 <th className="border border-gray-300 px-4 py-2">Actions</th>
               </tr>

@@ -12,6 +12,8 @@ import BooksTable from "../components/books/BooksTable";
 import BookEdit from "../components/books/BookEdit";
 import Animes from "../pages/Animes";
 import AnimesTable from "../components/animes/AnimesTable";
+import AnimeCreate from "../components/animes/AnimeCreate";
+import AnimeEdit from "../components/animes/AnimeEdit";
 
 const router = createBrowserRouter([
   {
@@ -62,7 +64,12 @@ const router = createBrowserRouter([
         path: "animes",
         element: <Animes />,
         children:[
-          {path:"", element:<AnimesTable/>}
+          {path:"", element:<AnimesTable/>},
+          {
+            path: "create",
+            element: <AnimeCreate />,
+          },
+          { path: ":id/edit", element: <AnimeEdit /> },
         ]
       },
     ],
