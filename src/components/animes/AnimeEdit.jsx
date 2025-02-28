@@ -10,7 +10,7 @@ const AnimeEdit = () => {
   const { data } = useQuery({
     queryKey: ["anime", id],
     queryFn: async () => {
-      const response = await fetch(`http://localhost:3000/animes/${id}`);
+      const response = await fetch(`${import.meta.env.VITE_ANIMES_URL}/${id}`);
       return response.json();
     },
     onSuccess: () => {
@@ -30,7 +30,7 @@ const AnimeEdit = () => {
           data[key] = parseInt(data[key]);
         }
       }
-      const response = await fetch(`http://localhost:3000/animes/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_ANIMES_URL}/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

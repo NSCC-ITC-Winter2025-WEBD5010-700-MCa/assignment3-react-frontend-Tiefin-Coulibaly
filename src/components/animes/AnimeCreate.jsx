@@ -16,7 +16,7 @@ const AnimeCreate = () => {
           data[key] = parseInt(data[key]);
         }
       }
-      const response = await fetch("http://localhost:3000/animes", {
+      const response = await fetch(import.meta.env.VITE_ANIMES_URL, {
         method: "POST",
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },

@@ -13,7 +13,7 @@ const AnimesTable = () => {
   } = useQuery({
     queryKey: ["animesData"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:3000/animes");
+      const response = await fetch(import.meta.env.VITE_ANIMES_URL);
       return response.json();
     },
     staleTime: Infinity,
@@ -27,7 +27,7 @@ const AnimesTable = () => {
   // Mutate the data by sending a delete request
   const deleteMutation = useMutation({
     mutationFn: async (animeId) => {
-      const response = await fetch(`http://localhost:3000/animes/${animeId}`, {
+      const response = await fetch(`${import.meta.env.VITE_ANIMES_URL}/${animeId}`, {
         method: "DELETE",
       });
       return response.text();
